@@ -2,7 +2,8 @@
 
 #Function closure for Fibonacci sequence calculation
 
-def caching_fibonacci(n, cache = {}):
+def caching_fibonacci():
+    cache = {}
     def fibonacci(n):
         if n <= 0: 
             return 0 #seed value for F0 = 0
@@ -12,16 +13,18 @@ def caching_fibonacci(n, cache = {}):
             return cache[n]
         else:
             cache[n] = fibonacci(n-1) + fibonacci(n-2)
-        print(f'{n} is not in cache yet') #these prints are only for visual checking og cache usage 
+        print(f'{n} is not in cache yet') #these prints are only for visual checking of cache usage 
         #print(cache)
         return cache[n]      
        
-    return fibonacci(n) 
+    return fibonacci
+
+fib = caching_fibonacci()
 
 #Checking the function
-print(caching_fibonacci(10))
-print(caching_fibonacci(15))
-print(caching_fibonacci(9))
-print(caching_fibonacci(11))
-print(caching_fibonacci(16))
+print(fib(10))
+print(fib(15))
+print(fib(9))
+print(fib(11))
+print(fib(16))
 
